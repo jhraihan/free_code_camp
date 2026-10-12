@@ -20,7 +20,25 @@ function getMovies(url) {
             const image = document.createElement("img");
             const title = document.createElement("h3");
             const center = document.createElement("center");
+
+            title.innerHTML = `${element.title}`;
+            image.src = IMG_PATH + element.poster_path;
+
+            center.appendChild(image);
+            div_card.appendChild(center);
+            div_card.appendChild(title);
+            div_column.appendChild(div_card);
+            div_row.appendChild(div_column);
+
+            main.appendChild(div_row);
                 
         });
     });
+};
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    main.innerHTML = "";
+
+    const searchTerm = search.value;
 };
